@@ -20,13 +20,13 @@ public class ProfileController {
         return customerService.save(customer);
     }
 
-    /*@RequestMapping(value = "/profile", method = RequestMethod.GET)
+    @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public Customer fetch(@RequestParam int profileId) {
         return customerService.fetchById(profileId);
     }
 
     @RequestMapping(value = "/profiles", method = RequestMethod.GET)
     public List<Customer> fetch() {
-        //return customerService.fetchAllProfiles();
-    }*/
+        return customerService.fetchAllProfiles();
+    }
 }
