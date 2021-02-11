@@ -3,6 +3,7 @@ package com.infinity.shoppingcloud.profileservice.controller;
 import com.infinity.shoppingcloud.commons.model.Customer;
 import com.infinity.shoppingcloud.profileservice.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class ProfileController {
 
 
     @RequestMapping(value = "/profile", method = RequestMethod.POST)
+    @PreAuthorize("hasAuthority('create_profile')")
     public Customer save(@RequestBody Customer customer) {
         return customerService.save(customer);
     }
@@ -26,6 +28,7 @@ public class ProfileController {
     }
 
     @RequestMapping(value = "/profiles", method = RequestMethod.GET)
+    @PreAuthorize("hasAuthority('read_profile')")
     public List<Customer> fetch() {
         return customerService.fetchAllProfiles();
     }

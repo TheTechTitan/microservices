@@ -1,21 +1,18 @@
 package com.infinity.shoppingcloud.commons.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "customer")
-public class Customer {
+public class  Customer {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
     String firstName;
     String lastName;
-    String dlNumber;
+    String address;
     String zipcode;
 
     public int getId() {
@@ -42,12 +39,12 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public String getDlNumber() {
-        return dlNumber;
+    public String getAddress() {
+        return address;
     }
 
-    public void setDlNumber(String dlNumber) {
-        this.dlNumber = dlNumber;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getZipcode() {
